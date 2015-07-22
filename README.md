@@ -37,17 +37,11 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.root
 Type: `String`
-Default value: `',  '`
+Default value: `'/'`
 
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
+A valid path within your project directory that contains your hexo site. It may be the project directory itself or any subdirectory. That option tells grunt-hexo where the hexo module can be found.
 
 ### Usage Examples
 
