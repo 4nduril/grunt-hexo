@@ -24,6 +24,7 @@ module.exports = function(grunt) {
 	// Find the Hexo module and load it.
 	var hexoRoot = '.' + options.root;
 	var hexoPath = hexoRoot + 'node_modules/hexo/lib/hexo/index.js';
+	grunt.log.writeln(hexoPath);
 	var Hexo;
 
 	if (grunt.file.exists(hexoPath)) {
