@@ -1,0 +1,42 @@
+{
+  "name": "grunt-hexo",
+  "description": "A Grunt wrapper for the Hexo static site blog framework.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/4nduril/grunt-hexo",
+  "author": {
+    "name": "Tobias Barth",
+    "email": "mail@tobias-barth.net",
+    "url": "http://tobias-barth.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/4nduril/grunt-hexo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/4nduril/grunt-hexo/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/4nduril/grunt-hexo/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
