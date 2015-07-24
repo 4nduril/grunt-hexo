@@ -1,7 +1,7 @@
 {
   "name": "grunt-hexo",
   "description": "A Grunt wrapper for the Hexo static site blog framework.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "homepage": "https://github.com/4nduril/grunt-hexo",
   "author": {
     "name": "Tobias Barth",
@@ -43,6 +43,6 @@
   },
   "keywords": [
     "gruntplugin",
-	"hexo"
+    "hexo"
   ]
 }
