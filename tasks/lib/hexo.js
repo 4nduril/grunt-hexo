@@ -24,9 +24,11 @@ module.exports = function(hexoRoot, cliCmd, callback, options, isGrunt, altHexo)
 		grunt = require('grunt');
 	}
 	
-	if (typeof hexoRoot === 'string') {
+	// Make hexoRoot a valid path
+	try {
 		hexoRoot = path.join(process.cwd(), hexoRoot);
-	} else {
+	} catch(err) {
+	// Do a better Error message and if grunt use grunt.log
 		if (isGrunt) {
 			grunt.log.error(noFolderErrMsg);
 			return false;
@@ -35,7 +37,6 @@ module.exports = function(hexoRoot, cliCmd, callback, options, isGrunt, altHexo)
 		}
 	}
 
-
 	if (options === undefined) {
 		options = {};
 	}
@@ -43,7 +44,7 @@ module.exports = function(hexoRoot, cliCmd, callback, options, isGrunt, altHexo)
 	var hexoPath = path.join(
 		hexoRoot,
 		modulePath
-		);
+	);
 
 	// Open Hexo constructor for injection (useful for testing ...)
 	var Hexo;
