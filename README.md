@@ -1,6 +1,6 @@
 # grunt-hexo
 
-> A Grunt wrapper for the Hexo static site blog framework
+> A Grunt wrapper for the [Hexo](https://github.com/hexojs/hexo) static site blog framework
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
@@ -25,11 +25,10 @@ In your project's Gruntfile, add a section named `hexo` to the data object passe
 ```js
 grunt.initConfig({
   hexo: {
-    options: {
-      // Task-specific options go here.
-    },
     your_target: {
-      // Target-specific file lists and/or options go here.
+      options: {
+		  root: '/'
+	  }
     },
   },
 });
@@ -41,43 +40,12 @@ grunt.initConfig({
 Type: `String`
 Default value: `'/'`
 
-A valid path within your project directory that contains your hexo site. It may be the project directory itself or any subdirectory. That option tells grunt-hexo where the hexo module can be found.
+A valid path within your project directory that contains your Hexo site. It may be the project directory itself or any subdirectory. That option tells grunt-hexo where the Hexo installation and module can be found.
 
-### Usage Examples
+## Further Notes
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
-```js
-grunt.initConfig({
-  hexo: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  hexo: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
+Currently, this is very basic. It only runs the "generate" console from Hexo, which was enough for my use at the moment. I'm planning to add more commands and options until at some point the whole API of Hexo will be covered (hopefully). PRs are welcome.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
-## Release History
-_(Nothing yet)_
