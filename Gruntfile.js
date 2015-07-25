@@ -23,20 +23,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// Before generating any new files, remove any previously-created files.
-		clean: {
-			tests: ['tmp']
-		},
-
-		// Configuration to be run (and then tested).
-		hexo: {
-		std: {
-			options: {
-				root: '/blog/'
-			}
-		}
-		},
-
 		// Unit tests.
 		mochaTest: {
 			test: {
@@ -49,11 +35,7 @@ module.exports = function(grunt) {
 
 	});
 
-	// Actually load this plugin's task(s).
-	grunt.loadTasks('tasks');
-
 	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-mocha-test');
 
 	grunt.registerTask('test', ['mochaTest']);
