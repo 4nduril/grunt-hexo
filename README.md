@@ -1,5 +1,8 @@
 # grunt-hexo
 
+[![Build Status](https://travis-ci.org/4nduril/grunt-hexo.svg?branch=master)](https://travis-ci.org/4nduril/grunt-hexo)
+[![npm version](https://badge.fury.io/js/grunt-hexo.svg)](https://badge.fury.io/js/grunt-hexo)
+
 > A Grunt wrapper for the [Hexo](https://github.com/hexojs/hexo) static site blog framework
 
 ## Getting Started
