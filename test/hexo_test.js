@@ -11,7 +11,7 @@ var hexo = require('../tasks/lib/hexo');
 
 describe('Grunt-Hexo', function() {
 	var Hexo, init, call, exit;
-	var validCmds = ['generate'];
+	var validCmds = ['clean', 'generate'];
 	beforeEach(function() {
 		init = sinon.spy();
 		call = sinon.spy(function(cliCmd, options) {
@@ -35,38 +35,37 @@ describe('Grunt-Hexo', function() {
 			this.exit = exit;
 		};
 	});
-	it('should call init method of hexo', function(done) {
-		var hexoRoot = '/';
-		var cliCmd = 'generate';
-		var options = {};
-		var callback = done;
-		var isGrunt = false;
-		hexo(hexoRoot, cliCmd, callback, options, isGrunt, Hexo);
-		expect(init).to.have.been.called;
-	});
-	it('should call the call method of hexo with arguments cliCmd and options',
-	function(done) {
-		var hexoRoot = '/';
-		var cliCmd = 'generate';
-		var options = {};
-		var callback = function () {
-			expect(call).to.have.been.calledWith(cliCmd, options);
-			done();
-		};
-		var isGrunt = false;
-		hexo(hexoRoot, cliCmd, callback, options, isGrunt, Hexo);
-	});
-	it('should call the exit method of hexo', function(done) {
-		var hexoRoot = '/';
-		var cliCmd = 'generate';
-		var options = {};
-		var callback = function () {
-			expect(exit).to.have.been.called;
-			done();
-		};
-		var isGrunt = false;
-		hexo(hexoRoot, cliCmd, callback, options, isGrunt, Hexo);
-	});
+        validCmds.forEach(function (cmd) {
+          it('should call init method of hexo', function(done) {
+                  var hexoRoot = '/';
+                  var options = {};
+                  var callback = done;
+                  var isGrunt = false;
+                  hexo(hexoRoot, cmd, callback, options, isGrunt, Hexo);
+                  expect(init).to.have.been.called;
+          });
+          it('should call the call method of hexo with arguments cliCmd and options',
+          function(done) {
+                  var hexoRoot = '/';
+                  var options = {};
+                  var callback = function () {
+                          expect(call).to.have.been.calledWith(cmd, options);
+                          done();
+                  };
+                  var isGrunt = false;
+                  hexo(hexoRoot, cmd, callback, options, isGrunt, Hexo);
+          });
+          it('should call the exit method of hexo', function(done) {
+                  var hexoRoot = '/';
+                  var options = {};
+                  var callback = function () {
+                          expect(exit).to.have.been.called;
+                          done();
+                  };
+                  var isGrunt = false;
+                  hexo(hexoRoot, cmd, callback, options, isGrunt, Hexo);
+          });
+        });
 	it('should call the exit method of hexo with reject reason',
 	function(done) {
 		var hexoRoot = '/';

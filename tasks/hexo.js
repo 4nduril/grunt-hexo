@@ -16,16 +16,17 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('hexo', 'A Grunt wrapper for the Hexo static site blog framework', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      root: '/'
+      root: '/',
+      cliCmd: 'generate'
     });
-	
+
 	var hexo = require('./lib/hexo');
 
 	var done = this.async();
 
-	hexo(options.root, 'generate', done, {}, true);
+	hexo(options.root, options.cliCmd, done, {}, true);
 
   });
-	
+
 
 };
