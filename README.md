@@ -28,13 +28,26 @@ In your project's Gruntfile, add a section named `hexo` to the data object passe
 ```js
 grunt.initConfig({
   hexo: {
-    your_target: {
+    clean: {
       options: {
-		  root: '/'
-	  }
+        root: '/',
+        cliCmd: 'clean'
+      }
+    },
+    generate: {
+      options: {
+        root: '/',
+        cliCmd: 'generate'
+      }
     },
   },
 });
+```
+
+Then define your task to run. This is an example to define a default task to always `clean` and `generate`:
+
+```js
+grunt.registerTask('default', ['hexo:clean', 'hexo:generate']);
 ```
 
 ### Options
@@ -45,9 +58,18 @@ Default value: `'/'`
 
 A valid path within your project directory that contains your Hexo site. It may be the project directory itself or any subdirectory. That option tells grunt-hexo where the Hexo installation and module can be found.
 
+#### options.cliCmd
+Type: `String`
+Default value: `generate`
+
+A valid command you want to run as a task. Can be one of
+
+- [clean](https://hexo.io/docs/commands.html#clean)
+- [generate](https://hexo.io/docs/commands.html#generate)
+
 ## Further Notes
 
-Currently, this is very basic. It only runs the "generate" console from Hexo, which was enough for my use at the moment. I'm planning to add more commands and options until at some point the whole API of Hexo will be covered (hopefully). PRs are welcome.
+Currently, this is very basic. It only runs the "generate" and "clean" commands from Hexo, which was enough for my use at the moment. I'm planning to add more commands and options until at some point the whole API of Hexo will be covered (hopefully). PRs are welcome.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).

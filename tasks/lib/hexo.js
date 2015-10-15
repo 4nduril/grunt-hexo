@@ -9,7 +9,7 @@
 'use strict';
 
 module.exports = function(hexoRoot, cliCmd, callback, options, isGrunt, altHexo) {
-	
+
 	var path = require('path');
 	var fs = require('fs');
 
@@ -23,7 +23,7 @@ module.exports = function(hexoRoot, cliCmd, callback, options, isGrunt, altHexo)
 	} else if (isGrunt) {
 		grunt = require('grunt');
 	}
-	
+
 	// Make hexoRoot a valid path
 	try {
 		hexoRoot = path.join(process.cwd(), hexoRoot);
