@@ -26,7 +26,7 @@ module.exports = function(hexoRoot, cliCmd, callback, options, isGrunt, altHexo)
 
 	// Make hexoRoot a valid path
 	try {
-		hexoRoot = path.join(process.cwd(), hexoRoot);
+		hexoRoot = path.resolve(path.join(process.cwd(), hexoRoot));
 	} catch(err) {
 		// Do a better Error message and if grunt use grunt.log
 		if (isGrunt) {
@@ -51,7 +51,7 @@ module.exports = function(hexoRoot, cliCmd, callback, options, isGrunt, altHexo)
 	if (altHexo) {
 		Hexo = altHexo;
 	} else if (fs.existsSync(hexoPath)) {
-		Hexo = require("hexo");
+		Hexo = require(hexoPath);
 	} else {
 		if (isGrunt) {
 			grunt.log.error(hexoNotFoundErrMsg);
@@ -62,7 +62,7 @@ module.exports = function(hexoRoot, cliCmd, callback, options, isGrunt, altHexo)
 	}
 
 	// Initialize Hexo …
-	var hexo = new Hexo(process.cwd(), {});
+	var hexo = new Hexo(hexoRoot, {});
 
 	// Call the specified cli command then exit cleanly and call callback
 	hexo.init().then(function() {
