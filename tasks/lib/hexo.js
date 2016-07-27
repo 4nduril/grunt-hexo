@@ -26,9 +26,9 @@ module.exports = function(hexoRoot, cliCmd, callback, options, isGrunt, altHexo)
 
 	// Make hexoRoot a valid path
 	try {
-		hexoRoot = path.join(process.cwd(), hexoRoot);
+		hexoRoot = path.resolve(path.join(process.cwd(), hexoRoot));
 	} catch(err) {
-	// Do a better Error message and if grunt use grunt.log
+		// Do a better Error message and if grunt use grunt.log
 		if (isGrunt) {
 			grunt.log.error(noFolderErrMsg);
 			return false;
